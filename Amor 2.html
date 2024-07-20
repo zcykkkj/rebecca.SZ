@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te amo</title>
+   
+   <style>
+        body {
+            background-color: #161616;
+            color: aliceblue;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .imagem-central {
+            width: 100%; /* Redimensiona para ocupar 80% da largura da tela */
+            height: auto;
+            margin: auto; /* Centraliza a imagem horizontalmente */
+            margin-top: 10vh; /* Define a margem superior para centralizar verticalmente */
+            position: relative; /* Necessário para posicionar as partículas */
+            overflow: hidden; /* Evita que as partículas apareçam fora da imagem */
+        }
+
+        .imagem-central:hover {
+            transform: scale(1.1); /* Amplia a imagem ao passar o mouse */
+        }
+
+        /* Partículas */
+        .particula {
+            position: absolute;
+            width: 10px;
+            height: auto;
+            pointer-events: none; /* Evita que as partículas interfiram com os eventos do mouse */
+            transition: opacity 1s, transform 1s; /* Transições de opacidade e transformação */
+        }
+    </style>
+</head>
+<body>
+    <h1>831 224</h1>
+
+    <!-- Imagem Central -->
+    <div class="imagem-central">
+        <img id="imagem-central" src="https://thumbs2.imgbox.com/dd/b5/JR5G6ERd_t.png" alt="Imagem Central">
+    </div>
+
+    <!-- Script JavaScript para criar partículas -->
+    <script>
+        document.querySelector('.imagem-central').addEventListener('mousemove', function(event) {
+            // Lista de imagens de partículas
+            const imagens = [
+                'https://www.pngall.com/wp-content/uploads/4/Heart-Symbol-PNG-Free-Image.png',
+                '',
+                'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAP8AAACZCAMAAADXexy/AAAAD1BMVEVbzvr1qbj///+ZwOD97vGyplP9AAAAoklEQVR4nO3cyQnAQBAEsfGRf8xOwjCwJWVQ74aeAQAAAAAAAOAIT9tcbfrb9Lfpb9Pfpr9Nf5v+Nv1t+tv0t+lv09+mv01/W77/bZu7TX+b/jb9bfrb9Lfpb9Pfpr9Nf5v+Nv1t+tv0t+lvy++/2wP8Mv1t+tv0t+lv09+mv01/m/42/W362/S36W/T36a/Ld+/fcC9bPt+HQAAAAAAAIB/fHSDg33l9OsZAAAAAElFTkSuQmCC'
+            ];
+
+            // Criar múltiplas partículas (imagens) ao redor da posição do mouse
+            for (let i = 0 ; i < 2; i++) {
+                const particula = document.createElement('img');
+                particula.classList.add('particula');
+                particula.src = imagens[i]; // Define a imagem da partícula
+                particula.style.left = event.pageX + Math.random() * 20 + (-20) + 'px'; // Ajusta a posição horizontal da partícula
+                particula.style.top = event.pageY + Math.random() * 29 + (-160) + 'px'; // Ajusta a posição vertical da partícula
+                document.querySelector('.imagem-central').appendChild(particula);
+
+                // Remover a partícula após um tempo
+                setTimeout(function() {
+                    particula.remove();
+                }, 500);
+            }
+        });
+
+        // Adicionar evento de clique na imagem central
+        document.getElementById('imagem-central').addEventListener('click', function(event) {
+            // Coordenadas do clique
+            const posX = event.pageX;
+            const posY = event.pageY;
+
+            // Criar 
+
+            // Adicionar imagem temporária à div
+            document.body.appendChild(imagemTemporaria);
+
+            // Remover imagem temporária após 1 segundo
+            setTimeout(function() {
+                imagemTemporaria.remove();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
